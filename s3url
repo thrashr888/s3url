@@ -217,6 +217,7 @@ class CFMimeTypes
 		'xwd' => 'image/x-xwindowdump',
 		'xyz' => 'chemical/x-xyz',
 		'zip' => 'application/zip',
+		'yaml' => 'text/plain',
 	);
 
 	/**
@@ -8006,14 +8007,17 @@ class AmazonS3 extends CFRuntime
 // cli args
 if($argc < 3) {
   echo "s3url copies files and streams to a public S3 file and copies the url to your clipboard." . PHP_EOL . PHP_EOL;
-  echo "Usage: s3url <bucket-name> <file>" . PHP_EOL;
+  echo "Usage: s3url <bucket-name> <file> [<obfuscate-file-name>]" . PHP_EOL;
   echo "Usage: echo 'example' | s3url <bucket-name> <filename>" . PHP_EOL . PHP_EOL;
+  echo "Example: s3url my-bucket test.txt true" . PHP_EOL;
+  echo "\thttp://my-bucket.s3.amazonaws.com/759bfbf5641e75673e3deea5a2aa0721.txt" . PHP_EOL . PHP_EOL;
   echo "Credentials must exist in ~/.awssecret with format \"aws-key\\naws-secret\\n\"" . PHP_EOL;
   exit(1);
 }
 
 $bucket = isset($argv[1])?$argv[1]:die('Bucket name required.' . PHP_EOL);
 $file = isset($argv[2])?$argv[2]:die('File name required.' . PHP_EOL);
+$obfuscate = isset($argv[3])?true:false;
 
 $s3key_file = realpath($_ENV['HOME'].'/.awssecret');
 
@@ -8067,15 +8071,17 @@ if (!$s3->if_bucket_exists($bucket))
 	if (!$response->isOK()) die('Could not create `' . $bucket . '`.' . PHP_EOL);
 }
 
+$file_info = pathinfo($file);
+
 if(is_file($file)) {
   // copy a file to S3
   echo "Uploading File '{$file}' to S3 Bucket '{$bucket}'..." . PHP_EOL . PHP_EOL;
-  $filename = basename($file);
+  $filename = $obfuscate ? md5($file).'.'.$file_info['extension'] : basename($file);
   $file = realpath($file);
 } else {
   // copy stdin to S3
   echo "Uploading STDIN to S3 Bucket '{$bucket}'..." . PHP_EOL . PHP_EOL;
-  $filename = $file;
+  $filename = $obfuscate ? md5($file).'.'.$file_info['extension'] : $file;
   $file = fopen("php://stdin", "r");
 }
 

@@ -46,4 +46,4 @@ Enable Clipboard Access (Only necessary on Linux)
 
 #### Notes
 
-It uses S3 as a storage backend. Idea blatantly stolen from [geturl](https://github.com/uams/geturl). Most code taken from the [official AWS PHP SDK](http://aws.amazon.com/php/).
+It uses S3 as a storage backend. Idea and readme copy blatantly stolen from [geturl](https://github.com/uams/geturl). S3 code taken from the [official AWS PHP SDK](http://aws.amazon.com/php/).
