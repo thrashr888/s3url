@@ -44,10 +44,6 @@ Enable Clipboard Access (Only necessary on Linux)
 
     sudo apt-get install xclip
 
-I'll submit it to `brew` and `apt-get` if enough people are interested.
-
-<img src="https://raw.github.com/thrashr888/s3url/master/static/install.png">
-
 #### Notes
 
 It uses S3 as a storage backend. Idea blatantly stolen from [geturl](https://github.com/uams/geturl). Most code taken from the [official AWS PHP SDK](http://aws.amazon.com/php/).
