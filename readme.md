@@ -1,7 +1,7 @@
 ## s3url  - provide path. get url.
 ### A CLI tool to get a public link for any file
 
-Uses [s3](http://aws.amazon.com/s3/) to store the files. It's a cool uploading tool that I've been using on my website and this is a hack on top of it.
+Uses [Amazon S3](http://aws.amazon.com/s3/) to store the files. s3url copies files and streams to a public S3 file and copies the url to your clipboard.
 
 #### Use Cases
 
@@ -18,7 +18,15 @@ You provide a path, it returns a URL
 
 It also tries to use `pbcopy` on a mac, `xsel` or `xclip` on Linux to put the url into your clipboard.
 
-<img src="https://raw.github.com/thrashr888/s3url/master/static/example.png">
+Example output:
+
+    $ s3url my-bucket test.txt
+    Uploading File 'test.txt' to S3 Bucket 'my-bucket'...
+    
+    A Public Share URL for: test.txt
+    http://my-bucket.s3.amazonaws.com/test.txt
+    
+    Also in your clipboard
 
 #### Installation
 

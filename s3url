@@ -8006,9 +8006,9 @@ class AmazonS3 extends CFRuntime
 // cli args
 if($argc < 3) {
   echo "s3url copies files and streams to a public S3 file and copies the url to your clipboard." . PHP_EOL . PHP_EOL;
-  echo "Usage: s3url bucket-name file" . PHP_EOL;
-  echo "Usage: echo 'example' | s3url bucket-name filename" . PHP_EOL . PHP_EOL;
-  echo "Credentials must exist in ~/.awssecret" . PHP_EOL;
+  echo "Usage: s3url <bucket-name> <file>" . PHP_EOL;
+  echo "Usage: echo 'example' | s3url <bucket-name> <filename>" . PHP_EOL . PHP_EOL;
+  echo "Credentials must exist in ~/.awssecret with format \"aws-key\\naws-secret\\n\"" . PHP_EOL;
   exit(1);
 }
 
