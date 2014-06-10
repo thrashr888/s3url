@@ -1,7 +1,7 @@
 ## s3url  - provide path. get url.
 ### A CLI tool to get a public link for any file
 
-Uses [Amazon S3](http://aws.amazon.com/s3/) to store the files. s3url copies files and streams to a public S3 file and copies the url to your clipboard.
+Uses [Amazon S3](http://aws.amazon.com/s3/) to store the files. s3url copies files and streams to a public S3 file and copies the url to your clipboard. A file sharing app for Amazon S3.
 
 #### Use Cases
 
@@ -26,7 +26,7 @@ Example output:
     A Public Share URL for: test.txt
     http://my-bucket.s3.amazonaws.com/test.txt
     
-    Also in your clipboard
+    Also in your clipboard.
 
 #### Installation
 
@@ -40,7 +40,7 @@ Place AWS credentials in ~/.awssecret, for (fake) example:
     fLYs6+Je1yz2VRWOZknfcKiTs0wonZOC97biDLz0
     
 
-Enable Clipboard Access (Only necessary on Linux)
+Enable Clipboard Access (Only necessary on Linux):
 
     sudo apt-get install xclip
 
