@@ -8100,6 +8100,6 @@ echo "A Public Share URL for: {$filename}" . PHP_EOL;
 echo $url . PHP_EOL . PHP_EOL;
 
 // copy using pbcopy or xclip
-system("[ -x `which pbcopy` ] && echo '{$url}' | pbcopy && echo 'Also in your clipboard'");
-system("[ -x `which xclip` ] && echo '{$url}' | xclip && echo 'Also in your clipboard'");
-system("[ -x `which xsel` ] && echo '{$url}' | xsel && echo 'Also in your clipboard'");
+system("[ -x `which pbcopy` ] && echo '{$url}' | pbcopy && echo 'Also in your clipboard.'");
+system("[ -x `which xclip` ] && echo '{$url}' | xclip && echo 'Also in your clipboard.'");
+system("[ -x `which xsel` ] && echo '{$url}' | xsel && echo 'Also in your clipboard.'");
