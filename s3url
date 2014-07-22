@@ -1,4 +1,4 @@
-#!/usr/local/bin/php
+#!/usr/bin/php
 <?php
 
 error_reporting(-1);
@@ -7,6 +7,12 @@ define('CFRUNTIME_NAME', 'aws-sdk-php');
 define('CFRUNTIME_VERSION', 'Panther');
 define('CFRUNTIME_BUILD', '20120926163000');
 define('CFRUNTIME_USERAGENT', CFRUNTIME_NAME . '/' . CFRUNTIME_VERSION . ' PHP/' . PHP_VERSION . ' ' . str_replace(' ', '_', php_uname('s')) . '/' . str_replace(' ', '_', php_uname('r')) . ' Arch/' . php_uname('m') . ' SAPI/' . php_sapi_name() . ' Integer/' . PHP_INT_MAX . ' Build/' . CFRUNTIME_BUILD . __aws_sdk_ua_callback());
+
+// To whom it may concern. In the interest of keeping this app in one file, with 
+// no dependencies, I've pasted the entire aws-sdk-php codebase in this file. 
+// 
+// I can only hope that, in time, you will come to forgive me.
+
 
 /*
  * Copyright 2010-2012 Amazon.com, Inc. or its affiliates. All Rights Reserved.
@@ -8009,8 +8015,9 @@ if($argc < 3) {
   echo "s3url copies files and streams to a public S3 file and copies the url to your clipboard." . PHP_EOL . PHP_EOL;
   echo "Usage: s3url <bucket-name> <file> [<obfuscate-file-name>]" . PHP_EOL;
   echo "Usage: echo 'example' | s3url <bucket-name> <filename>" . PHP_EOL . PHP_EOL;
-  echo "Example: s3url my-bucket test.txt true" . PHP_EOL;
-  echo "\thttp://my-bucket.s3.amazonaws.com/759bfbf5641e75673e3deea5a2aa0721.txt" . PHP_EOL . PHP_EOL;
+  echo "Example:" . PHP_EOL;
+  echo "\t$ s3url my-bucket test.txt true" . PHP_EOL;
+  echo "\thttp://my-bucket.s3.amazonaws.com/759bfbf5641e75673e3deea5a2aa0721.txt copied to clipboard." . PHP_EOL . PHP_EOL;
   echo "Credentials must exist in ~/.awssecret with format \"aws-key\\naws-secret\\n\"" . PHP_EOL;
   exit(1);
 }
